@@ -1,6 +1,7 @@
 @extends('layout/layout')
 
 @section('content')
+
 <div class="container-fluid">
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
@@ -25,12 +26,12 @@
                             </div>
                             <div class="card-body">
                                 <div class="basic-form">
-                                    <form method="post" action="{{ url('admin/post/submit') }}" enctype="multipart/form-data">
+                                    <form method="post" action="{{ url('admin/post/update/'. $result['0']->id) }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Title</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="title">
+                                                <input type="text" class="form-control" name="title" value="{{$result['0']->title}}">
                                                 @error('title')
                                                 <span class="form_error">{{ $message }}</span>
                                                 @enderror
@@ -39,7 +40,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Short Des</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="short_dec">
+                                                <input type="text" class="form-control" name="short_dec" value="{{$result['0']->short_dec}}">
                                                 @error('short_dec')
                                                 <span class="form_error">{{ $message }}</span>
                                                 @enderror
@@ -48,7 +49,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Long Des</label>
                                             <div class="col-sm-10">
-                                                <textarea name="long_dec"></textarea>
+                                                <textarea name="long_dec">{{$result['0']->long_dec}}</textarea>
                                                 @error('long_dec')
                                                 <span class="form_error">{{ $message }}</span>
                                                 @enderror
@@ -57,7 +58,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Slug</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="slug">
+                                                <input type="text" class="form-control" name="slug" value="{{$result['0']->slug}}">
                                                 @error('slug')
                                                 <span class="form_error">{{ $message }}</span>
                                                 @enderror
@@ -75,7 +76,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Post Date</label>
                                             <div class="col-sm-10">
-                                                <input type="date" class="form-control" name="post_date">
+                                                <input type="date" class="form-control" name="post_date" value="{{$result['0']->post_date}}">
                                                 @error('post_date')
                                                 <span class="form_error">{{ $message }}</span>
                                                 @enderror

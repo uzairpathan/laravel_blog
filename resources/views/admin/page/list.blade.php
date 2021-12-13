@@ -5,17 +5,13 @@
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
-                            <h2>List</h2>
+                            <h2>Page List</h2>
                             <span class="ml-1"></span>
                         </div>
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Table</a></li>
-                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Datatable</a></li>
-                        </ol>
                     </div>
-                    <h4><a href="./add">Add Post</a></h4>
+                    <h4><a href="{{ url('admin/page/add') }}">Add Page</a></h4>
                 </div>
                 <!-- row -->
 
@@ -31,25 +27,23 @@
                                     <table id="example" class="display" style="min-width: 845px">
                                         <thead>
                                             <tr>
-                                                <th width="5%">Sr.NO</th>
-                                                <th width="20%">Title</th>
-                                                <th width="25%">Short Dec</th>
-                                                <th width="20">Image</th>
-                                                <th width="15%">date</th>
-                                                <th width="15%">Action</th>
+                                                <th width="15%">Sr.NO</th>
+                                                <th width="20%">Name</th>
+                                                <th width="20%">Slug</th>
+                                                <th width="25%">Description</th>
+                                                <th width="20%">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                         @foreach ($result as $val)
                                             <tr>
                                                 <td>{{ $val->id }}</td>
-                                                <td>{{ $val->title }}</td>
-                                                <td>{{ $val->short_dec }}</td>
-                                                <td><img src="{{ asset('storage/uploaded_image/'. $val->image)}}" width="100px"></td>
-                                                <td>{{ $val->post_date }}</td>
+                                                <td>{{ $val->name }}</td>
+                                                <td>{{ $val->slug }}</td>
+                                                <td>{{ $val->description }}</td>
                                                 <td>
-                                                    <a class="btn btn-primary" href="{{ url('admin/post/edit/'. $val->id) }}">Edit</a>
-                                                    <a class="btn btn-primary" href="{{ url('admin/post/delete/'. $val->id) }}">Delete</a>
+                                                    <a class="btn btn-primary" href="{{ url('admin/page/edit/'. $val->id) }}">Edit</a>
+                                                    <a class="btn btn-primary" href="{{ url('admin/page/delete/'. $val->id) }}">Delete</a>
                                                 </td>
                                             </tr>
                                         @endforeach

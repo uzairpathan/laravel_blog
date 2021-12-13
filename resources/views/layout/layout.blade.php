@@ -176,27 +176,21 @@
                     
 
                     
-                    <li class="nav-label">Post add</li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-form"></i><span class="nav-text">Post Add</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./add">Post Add</a></li>
-                        </ul>
+                    <li class="nav-label">Post</li>
+                    <li><a class="" href="{{ url('admin/post/list') }}" aria-expanded="false"><i
+                                class="icon icon-form"></i><span class="nav-text">Posts</span></a>
                     </li>
-                    <li class="nav-label">Posts</li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
-                                class="icon icon-layout-25"></i><span class="nav-text">Posts</span></a>
-                        <ul aria-expanded="false">
-                            <li><a href="./list">List of post</a></li>
-                        </ul>
+                    <li class="nav-label">Page</li>
+                    <li><a class="" href="{{ url('admin/page/list') }}" aria-expanded="false"><i
+                                class="icon icon-layout-25"></i><span class="nav-text">Pages</span></a>
                     </li>
 
                     <li class="nav-label">Extra</li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
                                 class="icon icon-single-copy-06"></i><span class="nav-text">Pages</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="">Contact US</a></li>
-                            <li><a href="./page-login.html">Login</a></li>                            
+                            <li><a href="{{ url('admin/contact/list') }}">Contact US</a></li>
+                            <li><a href="">Login</a></li>                    
                             </li>
                         </ul>
                     </li>

@@ -1,6 +1,7 @@
 @extends('layout/layout')
 
 @section('content')
+
 <div class="container-fluid">
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
@@ -25,31 +26,13 @@
                             </div>
                             <div class="card-body">
                                 <div class="basic-form">
-                                    <form method="post" action="{{ url('admin/post/submit') }}" enctype="multipart/form-data">
+                                    <form method="post" action="{{ url('admin/page/update/'. $result['0']->id) }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Title</label>
+                                            <label class="col-sm-2 col-form-label">Name</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="title">
-                                                @error('title')
-                                                <span class="form_error">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Short Des</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="short_dec">
-                                                @error('short_dec')
-                                                <span class="form_error">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Long Des</label>
-                                            <div class="col-sm-10">
-                                                <textarea name="long_dec"></textarea>
-                                                @error('long_dec')
+                                                <input type="text" class="form-control" name="name" value="{{$result['0']->name}}">
+                                                @error('name')
                                                 <span class="form_error">{{ $message }}</span>
                                                 @enderror
                                             </div>
@@ -57,30 +40,22 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Slug</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="slug">
+                                                <input type="text" class="form-control" name="slug" value="{{$result['0']->slug}}">
                                                 @error('slug')
                                                 <span class="form_error">{{ $message }}</span>
                                                 @enderror
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Image</label>
+                                            <label class="col-sm-2 col-form-label">Description</label>
                                             <div class="col-sm-10">
-                                                <input type="file" class="form-control" name="image">
-                                                @error('image')
+                                                <textarea name="description">{{$result['0']->description}}</textarea>
+                                                @error('description')
                                                 <span class="form_error">{{ $message }}</span>
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Post Date</label>
-                                            <div class="col-sm-10">
-                                                <input type="date" class="form-control" name="post_date">
-                                                @error('post_date')
-                                                <span class="form_error">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
+                                        
                                         <div class="form-group row">
                                             <div class="col-sm-10">
                                                 <button type="submit" class="btn btn-primary">Submit</button>

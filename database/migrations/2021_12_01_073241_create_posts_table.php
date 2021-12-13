@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('short_dec');
             $table->text('long_dec');
+            $table->string('slug');
             $table->string('image');
             $table->date('post_date');
             $table->string('status');
